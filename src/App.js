@@ -5,7 +5,7 @@ import butcherPigImage from "./assets/butcherPig.jpeg"
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "apple through queen squeal fry fluent"
+    ""
   )
   const [inputTranslated, setInputTranslated] = useState("")
 
@@ -32,7 +32,21 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
-
+      //conditional statement for each word beginning with a vowel will return that word with "way" at the end
+      //second condition is if a word includes "qu" it will slice +1 after the u placement and it will return that part of the string to the end
+      //second part of second condition will continue slicing after u and add it to to the end of our string along with q at the end
+if (eachWord[0] === vowelsArray[0]) {
+  return eachWord + "way"
+}else if(eachWord.includes("qu")){
+          //  console.log("hello",eachWord.indexOf("u"))
+          //quWord front part of word goes one past u 
+          //wordEnd 
+         let quWord = eachWord.slice(0, eachWord.indexOf("u")+1)
+         let wordEnd = eachWord.slice(eachWord.indexOf("u")+1)
+          return wordEnd + quWord + "ay"
+          
+        }
+      
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
