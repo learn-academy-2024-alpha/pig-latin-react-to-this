@@ -38,11 +38,23 @@ const App = () => {
 
         if (eachWord[0] === vowelsArray[0]) {
           return eachWord + "way"
+        } else if(eachWord.includes("qu")) {
+          //  console.log("hello",eachWord.indexOf("u"))
+          //quWord front part of word goes one past u 
+          //wordEnd 
+         let quWord = eachWord.slice(0, eachWord.indexOf("u")+1)
+         let wordEnd = eachWord.slice(eachWord.indexOf("u")+1)
+          return wordEnd + quWord + "ay"
+          
+        } else if (eachWord.includes("y") && vowelsArray.length === 0) {
+          let yWord = eachWord.slice(0, eachWord.indexOf("y"))
+          console.log(yWord);
+          let yEnd = eachWord.slice(eachWord.indexOf("y"))
+          console.log(yEnd);
+          return yEnd + yWord + "ay"
         }
       
-      //   if (vowelsArray[0](userInput.push("way"))) 
-      //   return translatedWordsArray
-      // }
+      
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
